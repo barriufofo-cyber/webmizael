@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" fill="none">
+  <defs>
+    <!-- Left Upright Metallic Gradient -->
+    <linearGradient id="mLeftGrad" x1="0%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="25%" stop-color="#E2E5E9" />
+      <stop offset="60%" stop-color="#A2A7B0" />
+      <stop offset="100%" stop-color="#4B515D" />
+    </linearGradient>
+
+    <!-- Center Diagonal Main Beam Gradient -->
+    <linearGradient id="mCenterBeam" x1="20%" y1="10%" x2="80%" y2="90%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="20%" stop-color="#D4D7DC" />
+      <stop offset="55%" stop-color="#80858E" />
+      <stop offset="85%" stop-color="#3D424B" />
+      <stop offset="100%" stop-color="#1B1E23" />
+    </linearGradient>
+
+    <!-- Upper Right Diagonal Arm -->
+    <linearGradient id="mRightArm" x1="0%" y1="60%" x2="100%" y2="20%">
+      <stop offset="0%" stop-color="#2D323A" />
+      <stop offset="40%" stop-color="#727781" />
+      <stop offset="80%" stop-color="#D0D4DA" />
+      <stop offset="100%" stop-color="#F2F4F7" />
+    </linearGradient>
+
+    <!-- Ribbon 3D Outer Highlight (Liquid Chrome) -->
+    <linearGradient id="ribbonOuter" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#888E99" />
+      <stop offset="35%" stop-color="#D6DAE0" />
+      <stop offset="70%" stop-color="#FFFFFF" />
+      <stop offset="100%" stop-color="#CCD0D7" />
+    </linearGradient>
+
+    <!-- Ribbon Deep Inner Shadow / Fold Cavity -->
+    <linearGradient id="ribbonInnerShadow" x1="20%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%" stop-color="#181B20" />
+      <stop offset="50%" stop-color="#282D35" />
+      <stop offset="100%" stop-color="#0E1013" />
+    </linearGradient>
+
+    <!-- Subtle Bevel Hairline Gradient -->
+    <linearGradient id="bevelLight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#717682" stop-opacity="0.2" />
+    </linearGradient>
+
+    <!-- Soft Ambient Glow Filter -->
+    <filter id="subtleGlow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000000" flood-opacity="0.45" />
+    </filter>
+  </defs>
+
+  <g filter="url(#subtleGlow)">
+    <!-- 1. LEFT UPRIGHT WING / 'M' LEFT LEG -->
+    <path 
+      d="M80 95 L130 190 L130 360 L80 400 Z" 
+      fill="url(#mLeftGrad)" 
+      stroke="url(#bevelLight)" 
+      stroke-width="0.8"
+    />
+
+    <!-- 2. CENTRAL DIAGONAL BEAM (Connects apex of left wing to bottom-right) -->
+    <path 
+      d="M80 95 L255 235 L352 385 L300 408 L130 190 Z" 
+      fill="url(#mCenterBeam)" 
+      stroke="url(#bevelLight)" 
+      stroke-width="0.8"
+    />
+
+    <!-- 3. UPPER RIGHT DIAGONAL WING (Slanted upward arm) -->
+    <path 
+      d="M255 215 L420 100 L420 158 L285 248 Z" 
+      fill="url(#mRightArm)" 
+      stroke="url(#bevelLight)" 
+      stroke-width="0.8"
+    />
+
+    <!-- 4. INNER FOLD / DEEP SHADOW OF THE RIBBON -->
+    <!-- The cavity behind the loop -->
+    <path 
+      d="M285 248 C310 268 340 295 365 330 C375 345 378 370 352 385 L340 375 C310 330 270 280 255 215 Z" 
+      fill="url(#ribbonInnerShadow)" 
+    />
+
+    <!-- 5. 3D CURVED RIBBON ('S' SWOOP & HIGHLIGHT) -->
+    <!-- Starts from the upper-right fold, swoops smoothly around in a chrome wave and tapers to a sharp needle at the bottom -->
+    <path 
+      d="M320 225 
+         C365 255 415 295 423 345 
+         C428 378 405 408 360 412 
+         C332 414 314 409 308 408 
+         C335 404 365 390 382 365 
+         C398 340 382 305 320 255 
+         Z" 
+      fill="url(#ribbonOuter)" 
+      stroke="url(#bevelLight)" 
+      stroke-width="0.8"
+    />
+
+    <!-- Specular Ridge Shine along the ribbon edge -->
+    <path 
+      d="M325 230 C370 260 418 300 422 345 C424 365 414 392 375 408" 
+      stroke="#FFFFFF" 
+      stroke-width="1.8" 
+      stroke-linecap="round" 
+      opacity="0.85" 
+      fill="none" 
+    />
+  </g>
+</svg>
