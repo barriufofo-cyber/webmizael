@@ -15,6 +15,8 @@ import {
   Compass,
   ShieldCheck
 } from 'lucide-react';
+import { ContainerScroll } from './ui/container-scroll-animation';
+
 
 interface PortfolioProps {
   onOpenContact: (source?: string) => void;
@@ -198,7 +200,8 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onOpenContact }) => {
 
         {/* View Mode: SINGLE PROJECT FOCUSED */}
         {viewMode === 'single' && (
-          <div className="space-y-6">
+          <ContainerScroll>
+            <div className="space-y-6">
             {/* BROWSER MOCKUP CONTAINER */}
             <div className={`transition-all duration-300 mx-auto ${
               deviceWidth === 'mobile' ? 'max-w-md' : 'w-full'
@@ -315,141 +318,144 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onOpenContact }) => {
               ))}
             </div>
           </div>
-        )}
+        </ContainerScroll>
+      )}
 
         {/* View Mode: COMPARE BOTH SIDE BY SIDE (Desktop) */}
         {viewMode === 'compare' && (
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 text-left">
-            {/* Card 1: Bella Derma */}
-            <div className="bg-[#12151b] border border-white/15 rounded-3xl overflow-hidden shadow-2xl flex flex-col">
-              {/* Header */}
-              <div className="p-5 border-b border-white/10 flex items-center justify-between">
-                <div>
-                  <span className="text-[10px] font-mono uppercase tracking-widest text-amber-400">
-                    Clínica Estética
-                  </span>
-                  <h3 className="text-xl font-bold text-white font-heading">Bella Derma</h3>
+          <ContainerScroll>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 text-left">
+              {/* Card 1: Bella Derma */}
+              <div className="bg-[#12151b] border border-white/15 rounded-3xl overflow-hidden shadow-2xl flex flex-col">
+                {/* Header */}
+                <div className="p-5 border-b border-white/10 flex items-center justify-between">
+                  <div>
+                    <span className="text-[10px] font-mono uppercase tracking-widest text-amber-400">
+                      Clínica Estética
+                    </span>
+                    <h3 className="text-xl font-bold text-white font-heading">Bella Derma</h3>
+                  </div>
+                  <a
+                    href="https://belladerma.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2 rounded-xl bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white transition-colors"
+                    title="Abrir em tela cheia"
+                  >
+                    <ExternalLink className="w-4 h-4" />
+                  </a>
                 </div>
-                <a
-                  href="https://belladerma.vercel.app/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-2 rounded-xl bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white transition-colors"
-                  title="Abrir em tela cheia"
-                >
-                  <ExternalLink className="w-4 h-4" />
-                </a>
+
+                {/* Browser Mockup */}
+                <div className="bg-[#1a1e27] px-4 py-2 flex items-center gap-2 border-b border-white/10">
+                  <div className="flex gap-1.5">
+                    <span className="w-2.5 h-2.5 rounded-full bg-rose-500/80" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
+                  </div>
+                  <div className="flex-1 ml-2 bg-[#0e1015] rounded px-2.5 py-1 text-[11px] font-mono text-slate-400 truncate flex items-center gap-1.5">
+                    <Lock className="w-2.5 h-2.5 text-emerald-400" />
+                    <span>belladerma.vercel.app</span>
+                  </div>
+                </div>
+
+                {/* Scrollable Iframe */}
+                <div className="relative bg-white flex-1">
+                  <iframe
+                    src="https://belladerma.vercel.app/"
+                    title="Bella Derma - Site Real"
+                    className="w-full h-[540px] border-0"
+                    style={{ overflowY: 'auto' }}
+                    loading="lazy"
+                  />
+                </div>
+
+                {/* Bottom Action */}
+                <div className="p-4 bg-[#141720] border-t border-white/10 flex items-center justify-between">
+                  <a
+                    href="https://belladerma.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-xs font-semibold text-white hover:text-slate-300 transition-colors cursor-pointer"
+                  >
+                    <span>Abrir site em tela cheia</span>
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
+                  <button
+                    onClick={() => onOpenContact('Interesse em site como Bella Derma')}
+                    className="metallic-button px-4 py-2 rounded-xl text-xs font-bold cursor-pointer"
+                  >
+                    Quero Meu Site
+                  </button>
+                </div>
               </div>
 
-              {/* Browser Mockup */}
-              <div className="bg-[#1a1e27] px-4 py-2 flex items-center gap-2 border-b border-white/10">
-                <div className="flex gap-1.5">
-                  <span className="w-2.5 h-2.5 rounded-full bg-rose-500/80" />
-                  <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
-                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
+              {/* Card 2: O Sorriso Prime */}
+              <div className="bg-[#12151b] border border-white/15 rounded-3xl overflow-hidden shadow-2xl flex flex-col">
+                {/* Header */}
+                <div className="p-5 border-b border-white/10 flex items-center justify-between">
+                  <div>
+                    <span className="text-[10px] font-mono uppercase tracking-widest text-cyan-400">
+                      Clínica Odontológica
+                    </span>
+                    <h3 className="text-xl font-bold text-white font-heading">O Sorriso Prime</h3>
+                  </div>
+                  <a
+                    href="https://osorrisoprime.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2 rounded-xl bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white transition-colors"
+                    title="Abrir em tela cheia"
+                  >
+                    <ExternalLink className="w-4 h-4" />
+                  </a>
                 </div>
-                <div className="flex-1 ml-2 bg-[#0e1015] rounded px-2.5 py-1 text-[11px] font-mono text-slate-400 truncate flex items-center gap-1.5">
-                  <Lock className="w-2.5 h-2.5 text-emerald-400" />
-                  <span>belladerma.vercel.app</span>
+
+                {/* Browser Mockup */}
+                <div className="bg-[#1a1e27] px-4 py-2 flex items-center gap-2 border-b border-white/10">
+                  <div className="flex gap-1.5">
+                    <span className="w-2.5 h-2.5 rounded-full bg-rose-500/80" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
+                  </div>
+                  <div className="flex-1 ml-2 bg-[#0e1015] rounded px-2.5 py-1 text-[11px] font-mono text-slate-400 truncate flex items-center gap-1.5">
+                    <Lock className="w-2.5 h-2.5 text-emerald-400" />
+                    <span>osorrisoprime.vercel.app</span>
+                  </div>
                 </div>
-              </div>
 
-              {/* Scrollable Iframe */}
-              <div className="relative bg-white flex-1">
-                <iframe
-                  src="https://belladerma.vercel.app/"
-                  title="Bella Derma - Site Real"
-                  className="w-full h-[540px] border-0"
-                  style={{ overflowY: 'auto' }}
-                  loading="lazy"
-                />
-              </div>
+                {/* Scrollable Iframe */}
+                <div className="relative bg-white flex-1">
+                  <iframe
+                    src="https://osorrisoprime.vercel.app/"
+                    title="O Sorriso Prime - Site Real"
+                    className="w-full h-[540px] border-0"
+                    style={{ overflowY: 'auto' }}
+                    loading="lazy"
+                  />
+                </div>
 
-              {/* Bottom Action */}
-              <div className="p-4 bg-[#141720] border-t border-white/10 flex items-center justify-between">
-                <a
-                  href="https://belladerma.vercel.app/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-xs font-semibold text-white hover:text-slate-300 transition-colors cursor-pointer"
-                >
-                  <span>Abrir site em tela cheia</span>
-                  <ExternalLink className="w-3.5 h-3.5" />
-                </a>
-                <button
-                  onClick={() => onOpenContact('Interesse em site como Bella Derma')}
-                  className="metallic-button px-4 py-2 rounded-xl text-xs font-bold cursor-pointer"
-                >
-                  Quero Meu Site
-                </button>
+                {/* Bottom Action */}
+                <div className="p-4 bg-[#141720] border-t border-white/10 flex items-center justify-between">
+                  <a
+                    href="https://osorrisoprime.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-xs font-semibold text-white hover:text-slate-300 transition-colors cursor-pointer"
+                  >
+                    <span>Abrir site em tela cheia</span>
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
+                  <button
+                    onClick={() => onOpenContact('Interesse em site como O Sorriso Prime')}
+                    className="metallic-button px-4 py-2 rounded-xl text-xs font-bold cursor-pointer"
+                  >
+                    Quero Meu Site
+                  </button>
+                </div>
               </div>
             </div>
-
-            {/* Card 2: O Sorriso Prime */}
-            <div className="bg-[#12151b] border border-white/15 rounded-3xl overflow-hidden shadow-2xl flex flex-col">
-              {/* Header */}
-              <div className="p-5 border-b border-white/10 flex items-center justify-between">
-                <div>
-                  <span className="text-[10px] font-mono uppercase tracking-widest text-cyan-400">
-                    Clínica Odontológica
-                  </span>
-                  <h3 className="text-xl font-bold text-white font-heading">O Sorriso Prime</h3>
-                </div>
-                <a
-                  href="https://osorrisoprime.vercel.app/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-2 rounded-xl bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white transition-colors"
-                  title="Abrir em tela cheia"
-                >
-                  <ExternalLink className="w-4 h-4" />
-                </a>
-              </div>
-
-              {/* Browser Mockup */}
-              <div className="bg-[#1a1e27] px-4 py-2 flex items-center gap-2 border-b border-white/10">
-                <div className="flex gap-1.5">
-                  <span className="w-2.5 h-2.5 rounded-full bg-rose-500/80" />
-                  <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
-                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
-                </div>
-                <div className="flex-1 ml-2 bg-[#0e1015] rounded px-2.5 py-1 text-[11px] font-mono text-slate-400 truncate flex items-center gap-1.5">
-                  <Lock className="w-2.5 h-2.5 text-emerald-400" />
-                  <span>osorrisoprime.vercel.app</span>
-                </div>
-              </div>
-
-              {/* Scrollable Iframe */}
-              <div className="relative bg-white flex-1">
-                <iframe
-                  src="https://osorrisoprime.vercel.app/"
-                  title="O Sorriso Prime - Site Real"
-                  className="w-full h-[540px] border-0"
-                  style={{ overflowY: 'auto' }}
-                  loading="lazy"
-                />
-              </div>
-
-              {/* Bottom Action */}
-              <div className="p-4 bg-[#141720] border-t border-white/10 flex items-center justify-between">
-                <a
-                  href="https://osorrisoprime.vercel.app/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-xs font-semibold text-white hover:text-slate-300 transition-colors cursor-pointer"
-                >
-                  <span>Abrir site em tela cheia</span>
-                  <ExternalLink className="w-3.5 h-3.5" />
-                </a>
-                <button
-                  onClick={() => onOpenContact('Interesse em site como O Sorriso Prime')}
-                  className="metallic-button px-4 py-2 rounded-xl text-xs font-bold cursor-pointer"
-                >
-                  Quero Meu Site
-                </button>
-              </div>
-            </div>
-          </div>
+          </ContainerScroll>
         )}
 
         {/* Bottom Guarantee and Authority Footnote */}
