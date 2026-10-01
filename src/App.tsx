@@ -44,10 +44,10 @@ export default function App() {
     <div className="min-h-screen bg-[#090a0d] text-slate-100 flex flex-col font-sans selection:bg-slate-200 selection:text-slate-900 relative">
       {/* Global Interactive Spotlight following cursor throughout the entire viewport */}
       <div
-        className="pointer-events-none fixed inset-0 z-30 transition-opacity duration-500 hidden sm:block"
+        className="pointer-events-none fixed inset-0 z-30 transition-opacity duration-300 hidden sm:block"
         style={{
           opacity: isHovering ? 1 : 0,
-          background: `radial-gradient(650px circle at ${mousePos.x}px ${mousePos.y}px, rgba(255, 255, 255, 0.045), rgba(148, 163, 184, 0.015) 40%, transparent 80%)`,
+          background: `radial-gradient(550px circle at ${mousePos.x}px ${mousePos.y}px, rgba(249, 115, 22, 0.18), rgba(234, 88, 12, 0.08) 35%, rgba(217, 119, 6, 0.02) 65%, transparent 85%)`,
         }}
         aria-hidden="true"
       />
