@@ -54,21 +54,13 @@ export default function Header({ navigationData, onOpenContact }: HeaderProps) {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          {/* Logo oficial Mizael com texto de posicionamento */}
+          {/* Logo oficial Mizael preservada */}
           <a
             href="#inicio"
-            className="group flex items-center gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-300 rounded transition-transform hover:scale-105"
-            aria-label="MIZAEL | CRIAÇÃO DE SITES PARA CLÍNICAS - Página Inicial"
+            className="group flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-300 rounded transition-transform hover:scale-105"
+            aria-label="Mizael - Página Inicial"
           >
-            <Logo className="h-10 w-10 sm:h-11 sm:w-11 shrink-0" variant="header" />
-            <div className="flex flex-col text-left">
-              <span className="font-heading font-extrabold text-sm sm:text-base tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-slate-400">
-                MIZAEL
-              </span>
-              <span className="text-[9px] sm:text-[10px] uppercase tracking-wider font-semibold text-cyan-400/90 whitespace-nowrap">
-                CRIAÇÃO DE SITES PARA CLÍNICAS
-              </span>
-            </div>
+            <Logo className="h-11 w-11 sm:h-12 sm:w-12" variant="header" />
           </a>
 
           {/* Desktop Navigation Links */}
@@ -132,13 +124,13 @@ export default function Header({ navigationData, onOpenContact }: HeaderProps) {
               >
                 <SheetHeader className="text-left pb-4 border-b border-white/10">
                   <div className="flex items-center gap-3">
-                    <Logo className="h-9 w-9 shrink-0" variant="header" />
+                    <Logo className="h-9 w-9" variant="header" />
                     <div>
                       <SheetTitle className="text-white text-base font-bold font-heading">
-                        MIZAEL
+                        Mizael Web
                       </SheetTitle>
-                      <p className="text-[10px] text-cyan-400 font-semibold tracking-wider uppercase">
-                        CRIAÇÃO DE SITES PARA CLÍNICAS
+                      <p className="text-[11px] text-slate-400">
+                        Arquitetura de Alto Padrão
                       </p>
                     </div>
                   </div>
