@@ -1,63 +1,5 @@
-import React, { useRef, useState } from 'react';
+import React from 'react';
 import { Star, Quote, CheckCircle2, Sparkles, Building2, MapPin } from 'lucide-react';
-
-interface SpotlightCardProps {
-  children: React.ReactNode;
-  className?: string;
-}
-
-const SpotlightCard: React.FC<SpotlightCardProps> = ({ children, className = '' }) => {
-  const cardRef = useRef<HTMLDivElement>(null);
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [opacity, setOpacity] = useState(0);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current) return;
-    const rect = cardRef.current.getBoundingClientRect();
-    setPosition({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
-    });
-  };
-
-  const handleMouseEnter = () => setOpacity(1);
-  const handleMouseLeave = () => setOpacity(0);
-
-  return (
-    <div
-      ref={cardRef}
-      onMouseMove={handleMouseMove}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      className={`relative rounded-3xl border border-white/10 bg-[#0d0f14]/90 p-7 sm:p-9 overflow-hidden transition-all duration-300 hover:border-slate-300/40 hover:-translate-y-1.5 shadow-xl group ${className}`}
-    >
-      {/* Dynamic Interactive Spotlight that follows the mouse cursor */}
-      <div
-        className="pointer-events-none absolute -inset-px rounded-3xl transition-opacity duration-300"
-        style={{
-          opacity,
-          background: `radial-gradient(450px circle at ${position.x}px ${position.y}px, rgba(255, 255, 255, 0.08), transparent 60%)`,
-        }}
-      />
-      {/* Subtle border highlight following cursor */}
-      <div
-        className="pointer-events-none absolute -inset-px rounded-3xl transition-opacity duration-300"
-        style={{
-          opacity,
-          background: `radial-gradient(280px circle at ${position.x}px ${position.y}px, rgba(226, 232, 240, 0.25), transparent 70%)`,
-          mask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-          WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-          maskComposite: 'exclude',
-          WebkitMaskComposite: 'xor',
-          padding: '1px',
-        }}
-      />
-      <div className="relative z-10 flex flex-col justify-between h-full">
-        {children}
-      </div>
-    </div>
-  );
-};
 
 export const Testimonials: React.FC = () => {
   const testimonials = [
@@ -115,10 +57,13 @@ export const Testimonials: React.FC = () => {
           </p>
         </div>
 
-        {/* Testimonials Spotlight Grid */}
+        {/* Testimonials Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
           {testimonials.map((item, index) => (
-            <SpotlightCard key={index}>
+            <div 
+              key={index}
+              className="relative rounded-3xl border border-white/10 bg-[#0d0f14]/85 p-7 sm:p-9 flex flex-col justify-between transition-all duration-300 hover:border-slate-300/40 hover:-translate-y-1.5 shadow-xl group backdrop-blur-sm"
+            >
               <div>
                 {/* Rating stars & Quote Icon */}
                 <div className="flex items-center justify-between mb-5">
@@ -166,7 +111,7 @@ export const Testimonials: React.FC = () => {
                   <span>{item.verified}</span>
                 </div>
               </div>
-            </SpotlightCard>
+            </div>
           ))}
         </div>
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import AgencyHeroSection from '@/components/ui/hero-01';
 import { About } from './components/About.tsx';
 import { Services } from './components/Services.tsx';
@@ -13,6 +13,27 @@ import { MessageCircle } from 'lucide-react';
 export default function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalSource, setModalSource] = useState<string>('Botão Principal');
+  const [mousePos, setMousePos] = useState({ x: -1000, y: -1000 });
+  const [isHovering, setIsHovering] = useState(false);
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePos({ x: e.clientX, y: e.clientY });
+      if (!isHovering) setIsHovering(true);
+    };
+
+    const handleMouseLeave = () => {
+      setIsHovering(false);
+    };
+
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
+    document.addEventListener('mouseleave', handleMouseLeave);
+
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('mouseleave', handleMouseLeave);
+    };
+  }, [isHovering]);
 
   const handleOpenContact = (source?: string) => {
     setModalSource(source || 'Solicitação Geral');
@@ -20,7 +41,17 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#090a0d] text-slate-100 flex flex-col font-sans selection:bg-slate-200 selection:text-slate-900">
+    <div className="min-h-screen bg-[#090a0d] text-slate-100 flex flex-col font-sans selection:bg-slate-200 selection:text-slate-900 relative">
+      {/* Global Interactive Spotlight following cursor throughout the entire viewport */}
+      <div
+        className="pointer-events-none fixed inset-0 z-30 transition-opacity duration-500 hidden sm:block"
+        style={{
+          opacity: isHovering ? 1 : 0,
+          background: `radial-gradient(650px circle at ${mousePos.x}px ${mousePos.y}px, rgba(255, 255, 255, 0.045), rgba(148, 163, 184, 0.015) 40%, transparent 80%)`,
+        }}
+        aria-hidden="true"
+      />
+
       {/* 1. Modern Agency Hero Section (Header + Hero + Brand Slider) */}
       <AgencyHeroSection onOpenContact={handleOpenContact} />
 
