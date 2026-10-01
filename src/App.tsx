@@ -49,7 +49,7 @@ export default function App() {
       <Footer />
 
       {/* Primary Floating Action WhatsApp Button with Subtle Attention-Grabbing Pulse */}
-      <aside aria-label="Acesso rápido WhatsApp" className="fixed bottom-6 right-6 z-40">
+      <aside aria-label="Acesso rápido WhatsApp" className="fixed bottom-6 right-6 z-50 pointer-events-auto">
         <div className="relative">
           {/* Subtle radar beacon wave expanding outward */}
           <span

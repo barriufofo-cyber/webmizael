@@ -48,8 +48,8 @@ export default function Header({ navigationData, onOpenContact }: HeaderProps) {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
-        ? "bg-[#090a0d]/95 backdrop-blur-md border-b border-white/10 shadow-2xl shadow-black/50 py-3.5"
-        : "bg-transparent py-5"
+        ? "bg-[#090a0d]/95 backdrop-blur-md border-b border-white/10 shadow-2xl shadow-black/50 py-3"
+        : "bg-gradient-to-b from-[#090a0d]/90 via-[#090a0d]/60 to-transparent backdrop-blur-sm py-4"
         }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

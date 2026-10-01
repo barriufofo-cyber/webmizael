@@ -137,52 +137,52 @@ export const Services: React.FC<ServicesProps> = ({ onOpenContact }) => {
         <div className="relative w-full flex items-center overflow-visible my-auto">
           <motion.div 
             style={{ x }} 
-            className="flex gap-5 sm:gap-8 px-4 sm:px-8 md:px-16 will-change-transform transform-gpu"
+            className="flex gap-4 sm:gap-6 px-4 sm:px-8 md:px-14 will-change-transform transform-gpu"
           >
             {servicesList.map((service, index) => {
               const Icon = service.icon;
               return (
                 <div 
                   key={index}
-                  className="w-[84vw] sm:w-[500px] md:w-[580px] shrink-0 p-7 sm:p-9 rounded-3xl bg-[#0d0f14] border border-white/10 hover:border-slate-400/40 transition-[border-color,box-shadow] duration-200 flex flex-col justify-between shadow-xl relative overflow-hidden group transform-gpu"
+                  className="w-[82vw] sm:w-[420px] md:w-[460px] max-h-[72vh] shrink-0 p-5 sm:p-7 rounded-2xl sm:rounded-3xl bg-[#0d0f14] border border-white/10 hover:border-slate-400/40 transition-[border-color,box-shadow] duration-200 flex flex-col justify-between shadow-xl relative overflow-hidden group transform-gpu"
                 >
                   {/* Card top-right accent glow */}
-                  <div className={`absolute top-0 right-0 w-56 h-56 bg-gradient-to-bl ${service.accent} pointer-events-none rounded-full blur-2xl opacity-50 group-hover:opacity-90 transition-opacity`} />
-                  <div className="absolute top-0 right-0 w-28 h-28 bg-gradient-to-bl from-white/[0.05] to-transparent pointer-events-none" />
+                  <div className={`absolute top-0 right-0 w-44 h-44 bg-gradient-to-bl ${service.accent} pointer-events-none rounded-full blur-2xl opacity-40 group-hover:opacity-80 transition-opacity`} />
+                  <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-white/[0.04] to-transparent pointer-events-none" />
 
                   <div className="relative z-10">
-                    <div className="flex items-center justify-between mb-6">
-                      <div className="flex items-center gap-3">
-                        <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-200 group-hover:border-white/30 transition-colors">
-                          <Icon className="w-6 h-6 text-slate-300" />
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="flex items-center gap-2.5">
+                        <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-200 group-hover:border-white/30 transition-colors">
+                          <Icon className="w-5 h-5 text-slate-300" />
                         </div>
-                        <span className="font-heading font-black text-2xl sm:text-3xl text-metallic select-none">
+                        <span className="font-heading font-black text-xl sm:text-2xl text-metallic select-none">
                           {service.step}
                         </span>
                       </div>
 
-                      <span className="text-[10px] sm:text-xs uppercase font-mono px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-slate-300 font-medium">
+                      <span className="text-[9px] sm:text-[10px] uppercase font-mono px-3 py-1 rounded-full bg-white/5 border border-white/10 text-slate-300 font-medium">
                         {service.tag}
                       </span>
                     </div>
 
-                    <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white font-heading leading-snug group-hover:text-slate-100 transition-colors">
+                    <h3 className="text-lg sm:text-xl font-bold text-white font-heading leading-snug group-hover:text-slate-100 transition-colors">
                       {service.title}
                     </h3>
 
-                    <p className="text-xs sm:text-sm text-slate-400 font-medium mt-2">
+                    <p className="text-[11px] sm:text-xs text-slate-400 font-medium mt-1">
                       {service.subtitle}
                     </p>
 
-                    <p className="text-sm text-slate-300 mt-5 leading-relaxed">
+                    <p className="text-xs sm:text-[13px] text-slate-300 mt-3.5 leading-relaxed line-clamp-3 sm:line-clamp-none">
                       {service.description}
                     </p>
 
                     {/* Features list */}
-                    <ul className="mt-6 space-y-2.5 border-t border-white/5 pt-5">
+                    <ul className="mt-4 space-y-2 border-t border-white/5 pt-3.5">
                       {service.features.map((feature, fIdx) => (
-                        <li key={fIdx} className="flex items-center gap-2.5 text-xs sm:text-sm text-slate-300">
-                          <CheckCircle2 className="w-4 h-4 text-slate-400 shrink-0" />
+                        <li key={fIdx} className="flex items-center gap-2 text-xs text-slate-300">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-slate-400 shrink-0" />
                           <span>{feature}</span>
                         </li>
                       ))}
@@ -190,16 +190,16 @@ export const Services: React.FC<ServicesProps> = ({ onOpenContact }) => {
                   </div>
 
                   {/* Bottom Action Button */}
-                  <div className="mt-8 pt-5 border-t border-white/10 flex items-center justify-between relative z-10">
+                  <div className="mt-5 pt-3.5 border-t border-white/10 flex items-center justify-between relative z-10">
                     <button
                       onClick={() => onOpenContact(`Serviço: ${service.title}`)}
-                      className="text-xs sm:text-sm font-bold text-slate-200 hover:text-white flex items-center gap-2 group-hover:translate-x-1 transition-transform cursor-pointer"
+                      className="text-[11px] sm:text-xs font-bold text-slate-200 hover:text-white flex items-center gap-1.5 group-hover:translate-x-1 transition-transform cursor-pointer"
                     >
-                      <span>Solicitar Proposta para Este Serviço</span>
-                      <ArrowUpRight className="w-4 h-4 text-slate-400" />
+                      <span>Solicitar Proposta</span>
+                      <ArrowUpRight className="w-3.5 h-3.5 text-slate-400" />
                     </button>
 
-                    <span className="text-xs font-mono text-slate-500">
+                    <span className="text-[11px] font-mono text-slate-500">
                       0{index + 1} / 04
                     </span>
                   </div>
