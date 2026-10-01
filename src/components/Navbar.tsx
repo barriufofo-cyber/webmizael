@@ -40,10 +40,18 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
           {/* Zone 1: Official Mizael Pure Monogram Logo */}
           <a
             href="#inicio"
-            className="group flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-300 rounded transition-transform hover:scale-105"
-            aria-label="Mizael - Página Inicial"
+            className="group flex items-center gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-300 rounded transition-transform hover:scale-105"
+            aria-label="MIZAEL | CRIAÇÃO DE SITES PARA CLÍNICAS - Página Inicial"
           >
-            <Logo className="h-11 w-11 sm:h-12 sm:w-12" variant="header" />
+            <Logo className="h-10 w-10 sm:h-11 sm:w-11 shrink-0" variant="header" />
+            <div className="flex flex-col text-left">
+              <span className="font-heading font-extrabold text-sm sm:text-base tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-slate-400">
+                MIZAEL
+              </span>
+              <span className="text-[9px] sm:text-[10px] uppercase tracking-wider font-semibold text-cyan-400/90 whitespace-nowrap">
+                CRIAÇÃO DE SITES PARA CLÍNICAS
+              </span>
+            </div>
           </a>
 
           {/* Zone 2: Navigation Links (Desktop) */}
