@@ -32,7 +32,7 @@ export default function HeroSection({}: HeroSectionProps = {}) {
             </span>
           </span>
           <span className="block text-slate-200 font-heading text-xl sm:text-3xl md:text-4xl font-light mt-4 sm:mt-5 tracking-wide luxury-subhead-reveal">
-            em uma experiência digital exclusiva para sua Clínica.
+            experiência digital exclusiva para sua Clínica.
           </span>
         </h1>
       </div>

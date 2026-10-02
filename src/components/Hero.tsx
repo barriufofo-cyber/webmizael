@@ -74,7 +74,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenContact }) => {
               Autoridade, Sofisticação e Conversão
             </span>
             <span className="block text-white font-heading text-2xl sm:text-4xl md:text-5xl font-light mt-2 sm:mt-3">
-              em uma experiência digital exclusiva para sua Clínica.
+              experiência digital exclusiva para sua Clínica.
             </span>
           </h1>
 
