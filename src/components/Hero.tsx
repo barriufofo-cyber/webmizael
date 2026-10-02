@@ -78,51 +78,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenContact }) => {
             </span>
           </h1>
 
-          {/* Satisfied Clients Social Proof Badge */}
-          <div className="mt-10 inline-flex flex-col sm:flex-row items-center justify-center gap-3.5 px-5 py-3 rounded-2xl bg-white/[0.03] border border-white/10 shadow-lg backdrop-blur-sm">
-            {/* Stacked Avatars */}
-            <div className="flex items-center -space-x-2.5 overflow-hidden">
-              {satisfiedClients.map((client, idx) => (
-                <img
-                  key={idx}
-                  src={client.img}
-                  alt={client.name}
-                  title={`${client.name} (${client.role})`}
-                  className="inline-block w-9 h-9 rounded-full ring-2 ring-[#0c0e12] object-cover filter contrast-105"
-                  loading="lazy"
-                />
-              ))}
-            </div>
 
-            {/* Stars & Stat Copy */}
-            <div className="flex flex-col sm:items-start text-center sm:text-left">
-              <div className="flex items-center gap-1 justify-center sm:justify-start">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-                ))}
-                <span className="ml-1 text-xs font-bold text-white">5.0</span>
-              </div>
-              <span className="text-[11px] text-slate-300 font-medium mt-0.5">
-                +45 clínicas posicionadas como <span className="text-white font-semibold">referência de alto padrão</span>
-              </span>
-            </div>
-          </div>
-
-          {/* Trust Guarantees */}
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-6 text-xs text-slate-400 font-medium">
-            <div className="flex items-center gap-1.5">
-              <ShieldCheck className="w-4 h-4 text-slate-300" />
-              <span>Design 100% Autoral</span>
-            </div>
-            <div className="flex items-center gap-1.5">
-              <Zap className="w-4 h-4 text-slate-300" />
-              <span>Abertura em &lt; 0.8s</span>
-            </div>
-            <div className="flex items-center gap-1.5">
-              <Award className="w-4 h-4 text-slate-300" />
-              <span>Conforme Normas CFM & CFO</span>
-            </div>
-          </div>
 
         </div>
 

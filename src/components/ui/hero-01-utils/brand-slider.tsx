@@ -46,6 +46,8 @@ export default function BrandSlider({ brandList = [] }: BrandSliderProps) {
   ];
 
   const brands = brandList.length > 0 ? brandList : defaultBrands;
+  // Duplicamos a lista para criar o loop contínuo e sem emendas
+  const duplicatedBrands = [...brands, ...brands];
 
   return (
     <section className="py-12 border-t border-b border-white/10 bg-[#090b0e]/80 overflow-hidden relative">
@@ -53,19 +55,21 @@ export default function BrandSlider({ brandList = [] }: BrandSliderProps) {
         <p className="text-center text-[11px] uppercase tracking-[0.25em] text-slate-400 font-semibold mb-8">
           Especialistas e Clínicas que Confiam em Nosso Padrão Visual
         </p>
+      </div>
 
-        {/* Responsive Grid / Slider */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6 items-center">
-          {brands.map((brand, index) => (
+      {/* Container com máscara de fade nas bordas laterais */}
+      <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+        <div className="animate-marquee-ltr gap-5 sm:gap-6 py-2">
+          {duplicatedBrands.map((brand, index) => (
             <div
-              key={index}
-              className="group p-4 rounded-xl bg-white/[0.02] hover:bg-white/[0.06] border border-white/5 hover:border-white/20 transition-all duration-300 flex flex-col items-center justify-center text-center shadow-sm hover:scale-[1.02]"
+              key={`${brand.name}-${index}`}
+              className="group w-[210px] sm:w-[250px] shrink-0 p-4 sm:p-5 rounded-xl bg-white/[0.03] hover:bg-white/[0.07] border border-white/5 hover:border-cyan-400/30 transition-all duration-300 flex flex-col items-center justify-center text-center shadow-sm hover:scale-[1.03] cursor-default"
             >
-              <span className="font-heading font-black text-xs sm:text-sm tracking-wider text-slate-300 group-hover:text-white transition-colors">
+              <span className="font-heading font-black text-xs sm:text-sm tracking-wider text-slate-200 group-hover:text-white transition-colors">
                 {brand.name}
               </span>
               {brand.category && (
-                <span className="text-[9px] uppercase tracking-wider text-slate-400 mt-1 font-mono">
+                <span className="text-[10px] uppercase tracking-wider text-cyan-400/90 mt-1.5 font-mono font-medium">
                   {brand.category}
                 </span>
               )}
