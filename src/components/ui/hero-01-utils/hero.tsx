@@ -1,14 +1,10 @@
 import React from "react";
 import {
-  MessageCircle,
-  ArrowUpRight,
-  Sparkles,
   ShieldCheck,
   Zap,
   Award,
   Star,
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
 
 export interface AvatarList {
   image: string;
@@ -63,57 +59,15 @@ export default function HeroSection({
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        {/* Subtle Top Metallic Pill */}
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.04] border border-white/10 text-slate-300 text-xs font-medium tracking-wide mb-6 shadow-sm">
-          <Sparkles className="w-3.5 h-3.5 text-slate-300" />
-          <span className="uppercase tracking-widest text-[11px] font-mono">
-            Arquitetura Web de Alto Padrão
-          </span>
-        </div>
-
         {/* Main Impact Headline */}
-        <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.1] [text-wrap:balance] max-w-5xl mx-auto">
-          <span className="block text-metallic uppercase font-heading">
-            SUA EMPRESA SENDO VISTA
+        <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.15] [text-wrap:balance] max-w-5xl mx-auto">
+          <span className="block text-metallic font-heading">
+            Autoridade, Sofisticação e Conversão
           </span>
-          <span className="block text-white font-heading mt-1 sm:mt-2">
-            DA FORMA QUE MERECE.
+          <span className="block text-white font-heading text-2xl sm:text-4xl md:text-5xl font-light mt-2 sm:mt-3">
+            em uma experiência digital exclusiva para sua Clínica.
           </span>
         </h1>
-
-        {/* Action Buttons */}
-        <div className="mt-9 sm:mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto">
-          {/* Primary Action: WhatsApp Direct Link */}
-          <a
-            href="https://wa.me/5571986922653?text=Ol%C3%A1%20Mizael!%20Vi%20o%20seu%20trabalho%20e%20gostaria%20de%20um%20diagn%C3%B3stico%20para%20o%20site%20da%20minha%20cl%C3%ADnica.%20Podemos%20conversar?"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full sm:w-auto metallic-button px-7 py-3.5 rounded-xl text-sm font-bold flex items-center justify-center gap-2.5 shadow-xl transition-transform hover:scale-[1.03] cursor-pointer"
-          >
-            <MessageCircle className="w-4 h-4 text-emerald-600" />
-            <span>Falar no WhatsApp</span>
-          </a>
-
-          {/* Secondary Action: Solicit Quote */}
-          {onOpenContact ? (
-            <Button
-              onClick={() => onOpenContact("Hero CTA Principal")}
-              variant="outline"
-              className="w-full sm:w-auto px-7 py-3.5 h-auto rounded-xl text-sm font-semibold text-slate-200 hover:text-white border-slate-700 hover:border-slate-500 bg-white/[0.03] hover:bg-white/[0.08] transition-all flex items-center justify-center gap-2"
-            >
-              <span>Solicitar Orçamento</span>
-              <ArrowUpRight className="w-4 h-4 text-slate-400" />
-            </Button>
-          ) : (
-            <a
-              href="#contato"
-              className="w-full sm:w-auto px-7 py-3.5 rounded-xl text-sm font-semibold text-slate-200 hover:text-white border border-slate-700 hover:border-slate-500 bg-white/[0.03] hover:bg-white/[0.08] transition-all flex items-center justify-center gap-2"
-            >
-              <span>Solicitar Orçamento</span>
-              <ArrowUpRight className="w-4 h-4 text-slate-400" />
-            </a>
-          )}
-        </div>
 
         {/* Satisfied Clients Social Proof Group */}
         <div className="mt-10 inline-flex flex-col sm:flex-row items-center justify-center gap-3.5 px-5 py-3 rounded-2xl bg-white/[0.03] border border-white/10 shadow-lg backdrop-blur-sm">
